@@ -13,22 +13,17 @@ const HeroSection = () => {
           <Col lg="6" md="6">
             <div className="hero__content">
               <h2 style={{display: "inline" }}>
-                Discover dApp collections, buy & sell extraordinary
-                <span style={{display: 'inline'}}>dApp NFTs</span> 
+                Discover NFT collections, buy & sell extraordinary
+                <span style={{display: 'inline'}}> NFTs</span> 
               </h2>
               <p>
-                Best place for developers, non-developers and business to find best products and develope a better Web3 world.
+                A place to interact with Blockchain technology by minting & selling NFTs.
               </p>
 
               <div className="hero__btns d-flex align-items-center gap-4">
                 <button className=" explore__btn d-flex align-items-center gap-2">
                   <i className="ri-rocket-line"></i>{" "}
                   <Link to="/market">Explore</Link>
-                </button>
-                <button className=" create__btn d-flex align-items-center gap-2">
-                  <i className="ri-ball-pen-line"></i>
-                  {/* <Link to="/create">Create</Link> */}
-                  <a target="_blank" href="http://45.76.185.234:8080/">Create</a>
                 </button>
               </div>
             </div>
