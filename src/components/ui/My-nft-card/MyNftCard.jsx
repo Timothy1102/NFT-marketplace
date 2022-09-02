@@ -8,6 +8,7 @@ import getConfig from "../../../config";
 import { Row, Col } from "reactstrap";
 import { EyeTwoTone, CheckCircleTwoTone, HeartTwoTone} from "@ant-design/icons";
 
+const nearConfig = getConfig(process.env.NODE_ENV || "development");
 
 const MyNftCard = (props) => {
 	const {
