@@ -22,17 +22,9 @@ const Header = () => {
 				display: "MARKET",
 				url: "/market",
 			},
-			// {
-			// 	display: "CREATE",
-			// 	url: "/create",
-			// },
 			{
 				display: "MINT",
 				url: "/mint",
-			},
-			{
-				display: "CONTACT",
-				url: "/contact",
 			},
 			{
 				display: "PROFILE",
@@ -107,7 +99,7 @@ const Header = () => {
 							<span>
 								<i className="ri-fire-fill"></i>
 							</span>
-							DHub
+							NFT Marketplace
 						</h2>
 						</Link>
 					</div>
@@ -130,9 +122,6 @@ const Header = () => {
 									</NavLink>
 								</li>
 							))}
-							<li className="nav__item"  style={{fontWeight: 'bold'}}>
-								<a target="_blank" href="http://45.76.185.234:8080/">CREATE</a>
-							</li>
 						</ul>
 					</div>
 

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const MY__ACCOUNT = [
   {
-    display: "Author Profile",
+    display: "Profile",
     url: "/seller-profile",
   },
   {
@@ -30,30 +30,14 @@ const RESOURCES = [
     url: "#",
   },
   {
-    display: "Partner",
-    url: "#",
-  },
-  {
-    display: "Community",
-    url: "#",
-  },
-  {
     display: "Activity",
     url: "#",
   },
 ];
 
-const COMPANY = [
+const ABOUT = [
   {
     display: "About",
-    url: "#",
-  },
-  {
-    display: "Career",
-    url: "#",
-  },
-  {
-    display: "Ranking",
     url: "#",
   },
   {
@@ -73,10 +57,9 @@ const Footer = () => {
                 <span>
                   <i className="ri-fire-fill"></i>
                 </span>
-                DHub
+                NFT Marketplace
               </h2>
               <p style={{color: "gray"}}>
-                Best place for developers and business to find partners and develope a better Web3 world.
               </p>
             </div>
           </Col>
@@ -104,46 +87,14 @@ const Footer = () => {
           </Col>
 
           <Col lg="2" md="3" sm="6" className="mb-4">
-            <h5>Company</h5>
+            <h5>About</h5>
             <ListGroup className="list__group">
-              {COMPANY.map((item, index) => (
+              {ABOUT.map((item, index) => (
                 <ListGroupItem key={index} className="list__item">
                   <Link to={item.url}> {item.display} </Link>
                 </ListGroupItem>
               ))}
             </ListGroup>
-          </Col>
-
-          <Col lg="3" md="6" sm="6" className="mb-4">
-            <h5>Newsletter</h5>
-            <input type="text" className="newsletter" placeholder="Email" />
-            <div className="social__links d-flex gap-3 align-items-center ">
-              <span>
-                <Link to="#">
-                  <i className="ri-facebook-line"></i>
-                </Link>
-              </span>
-              <span>
-                <Link to="#">
-                  <i className="ri-instagram-line"></i>
-                </Link>
-              </span>
-              <span>
-                <Link to="#">
-                  <i className="ri-twitter-line"></i>
-                </Link>
-              </span>
-              <span>
-                <Link to="#">
-                  <i className="ri-telegram-line"></i>
-                </Link>
-              </span>
-              <span>
-                <Link to="#">
-                  <i className="ri-discord-line"></i>
-                </Link>
-              </span>
-            </div>
           </Col>
         </Row>
       </Container>
