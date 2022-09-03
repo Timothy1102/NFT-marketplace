@@ -37,7 +37,6 @@ const MyNftCard = (props) => {
 								marginRight: 20,
 							}}
 						/>
-						</a>
 					</Col>
 					<Col>
 						<h5 className="nft__title" style={{ marginBottom: 7 }}>
