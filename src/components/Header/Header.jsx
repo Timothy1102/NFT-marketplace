@@ -96,9 +96,6 @@ const Header = () => {
 							to={`/`}
 						>
 						<h2 className=" d-flex gap-2 align-items-center ">
-							<span>
-								<i className="ri-fire-fill"></i>
-							</span>
 							NFT Marketplace
 						</h2>
 						</Link>

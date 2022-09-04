@@ -54,9 +54,6 @@ const Footer = () => {
           <Col lg="3" md="6" sm="6" className="mb-4">
             <div className="logo">
               <h2 className=" d-flex gap-2 align-items-center ">
-                <span>
-                  <i className="ri-fire-fill"></i>
-                </span>
                 NFT Marketplace
               </h2>
               <p style={{color: "gray"}}>

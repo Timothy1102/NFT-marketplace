@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./hero-section.css";
 
-import heroImg from "../../assets/images/bg.jpeg";
+import heroImg from "../../assets/images/bg.png";
 
 const HeroSection = () => {
   return (
@@ -16,13 +16,12 @@ const HeroSection = () => {
                 Discover NFT collections, buy & sell extraordinary
                 <span style={{display: 'inline'}}> NFTs</span> 
               </h2>
-              <p>
+              <p className="des">
                 A place to interact with Blockchain technology by minting & selling NFTs.
               </p>
 
               <div className="hero__btns d-flex align-items-center gap-4">
                 <button className=" explore__btn d-flex align-items-center gap-2">
-                  <i className="ri-rocket-line"></i>{" "}
                   <Link to="/market">Explore</Link>
                 </button>
               </div>

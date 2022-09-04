@@ -2,6 +2,10 @@
   margin-top: 120px;
 }
 
+.hero__section p {
+  color: rgb(189, 184, 184);
+}
+
 .hero__content h2 {
   line-height: 55px;
   font-size: 2.5rem;
