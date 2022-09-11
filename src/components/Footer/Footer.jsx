@@ -18,31 +18,12 @@ const MY__ACCOUNT = [
     display: "Collection",
     url: "/market",
   },
-  {
-    display: "Edit Profile",
-    url: "/edit-profile",
-  },
-];
-
-const RESOURCES = [
-  {
-    display: "Help Center",
-    url: "#",
-  },
-  {
-    display: "Activity",
-    url: "#",
-  },
 ];
 
 const ABOUT = [
   {
-    display: "About",
+    display: "About Us",
     url: "#",
-  },
-  {
-    display: "Contact Us",
-    url: "/contact",
   },
 ];
 
@@ -72,16 +53,6 @@ const Footer = () => {
             </ListGroup>
           </Col>
 
-          <Col lg="2" md="3" sm="6" className="mb-4">
-            <h5>Resources</h5>
-            <ListGroup className="list__group">
-              {RESOURCES.map((item, index) => (
-                <ListGroupItem key={index} className="list__item">
-                  <Link to={item.url}> {item.display} </Link>
-                </ListGroupItem>
-              ))}
-            </ListGroup>
-          </Col>
 
           <Col lg="2" md="3" sm="6" className="mb-4">
             <h5>About</h5>
