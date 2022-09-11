@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <NftCard 
+      {/* <NftCard 
           title={"Title"}
           id={'token id'}
           creator={'Creator'}
@@ -16,7 +16,7 @@ const Home = () => {
           is_selling={true}
           selling_price={'100'}
           imgUrl={'https://bafkreichchmzgjudgugeuryjuhk3gnkckzmlxekq4jaz42uysfwsdp5mlq.ipfs.nftstorage.link/'}
-      />
+      /> */}
       <LiveAuction />
     </>
   );
