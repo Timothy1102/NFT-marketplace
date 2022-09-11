@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { utils } from "near-api-js";
 import "./my-nft-card.css";
-import ModalTransferNft from "../Modal-transfer-nft/ModalTransferNFT";
-import ModalListNft from "../Modal-list-nft/ModalListNFT";
 import getConfig from "../../../config";
 import { Row, Col } from "reactstrap";
 import { EyeTwoTone, CheckCircleTwoTone, HeartTwoTone} from "@ant-design/icons";
