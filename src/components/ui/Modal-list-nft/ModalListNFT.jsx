@@ -4,7 +4,7 @@ import {utils} from "near-api-js"
 import getConfig from '../../../config'
 import {notification} from "antd";
 
-const nearConfig = getConfig(process.env.NODE_ENV || 'development')
+const nearConfig = getConfig('development')
 
 const ModalListNft = ({ setShowListModal, token_id }) => {
 

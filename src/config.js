@@ -1,5 +1,5 @@
-const NFT_CONTRACT_NAME = process.env.NFT_CONTRACT_NAME ||'nft.timthang.testnet'
-const MARKET_CONTRACT_NAME = process.env.MARKET_CONTRACT_NAME || 'market.timthang.testnet'
+const NFT_CONTRACT_NAME = 'nft.timthang.testnet'
+const MARKET_CONTRACT_NAME = 'market.timthang.testnet'
 
 function getConfig(env) {
   switch (env) {
@@ -35,15 +35,15 @@ function getConfig(env) {
       helperUrl: 'https://helper.betanet.near.org',
       explorerUrl: 'https://explorer.betanet.near.org',
     }
-  case 'local':
-    return {
-      networkId: 'local',
-      nodeUrl: 'http://localhost:3030',
-      keyPath: `${process.env.HOME}/.near/validator_key.json`,
-      walletUrl: 'http://localhost:4000/wallet',
-      nftContractName: NFT_CONTRACT_NAME,
-      marketContractName: MARKET_CONTRACT_NAME,
-    }
+  // case 'local':
+  //   return {
+  //     networkId: 'local',
+  //     nodeUrl: 'http://localhost:3030',
+  //     keyPath: `${process.env.HOME}/.near/validator_key.json`,
+  //     walletUrl: 'http://localhost:4000/wallet',
+  //     nftContractName: NFT_CONTRACT_NAME,
+  //     marketContractName: MARKET_CONTRACT_NAME,
+  //   }
   case 'test':
   case 'ci':
     return {
