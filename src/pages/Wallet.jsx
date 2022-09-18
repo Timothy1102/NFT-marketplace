@@ -113,36 +113,7 @@ const Wallet = () => {
 					</Row>
 				</Container>
 			</section>
-			{/* <section style={{ paddingBottom: 0 }}>
-				<Container>
-					<Row>
-						<Col lg="12" className="mb-5">
-							<h3 className="trending__title">Using Items</h3>
-						</Col>
-						{sellingNft.map((item) => {
-							if (
-								item.itemData.users.includes(window.accountId)
-							) {
-								item.selling_price = item.sale_conditions;
-								// item.using_price = item.use_condition;
-								return (
-									<>
-										<Col
-											lg="3"
-											md="4"
-											sm="6"
-											className="mb-4"
-											key={item.token_id}
-										>
-											<NftCard item={item} />
-										</Col>
-									</>
-								);
-							}
-						})}
-					</Row>
-				</Container>
-			</section> */}
+
 			<section style={{ marginTop: 0 }}>
 				<Container>
 					<Row>

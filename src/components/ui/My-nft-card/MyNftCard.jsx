@@ -4,9 +4,11 @@ import { utils } from "near-api-js";
 import "./my-nft-card.css";
 import getConfig from "../../../config";
 import { Row, Col } from "reactstrap";
-import { EyeTwoTone, CheckCircleTwoTone, HeartTwoTone} from "@ant-design/icons";
+import { EyeTwoTone, HeartTwoTone} from "@ant-design/icons";
 
 const nearConfig = getConfig("development");
+const nft_contract_id = nearConfig.nftContractName;
+console.log("contract: ", nft_contract_id);
 
 const MyNftCard = (props) => {
 	const {
@@ -25,7 +27,7 @@ const MyNftCard = (props) => {
 				<Row>
 					<Col lg="3" style={{ marginRight: 7 }}>
 						<img
-							src=""
+							src={imgUrl}
 							alt="nft thumbnail"
 							className="d-inline-flex tw-rounded-full image-shadow tw-w-14 tw-h-14 "
 							style={{
@@ -40,8 +42,9 @@ const MyNftCard = (props) => {
 						<h5 className="nft__title" style={{ marginBottom: 7 }}>
 							<Link
 								style={{ color: "white", fontSize: 20 }}
+								to={`/market/${id}`}
 							>
-								title
+								{title}
 							</Link>
 						</h5>
 					</Col>
@@ -69,14 +72,13 @@ const MyNftCard = (props) => {
 						maxWidth: "40ch",
 					}}
 				>
-					Mockup data
+					{desc}
 				</p>
 			</div>
 
 			<div className=" d-flex align-items-center gap-2 single__nft-seen">
 				<EyeTwoTone twoToneColor="#ffa500"/> <span>53</span>
 				<HeartTwoTone twoToneColor="#eb2f96" /> <span>34</span>
-				<CheckCircleTwoTone twoToneColor="#52c41a" /> <span>15</span>
 			</div>
 
 			{is_selling && (
@@ -88,6 +90,7 @@ const MyNftCard = (props) => {
 						<div>
 							<h6>price</h6>
 							<p style={{color: 'orange'}}>
+								{utils.format.formatNearAmount(selling_price)}
 								<span style={{color:'#b1b3b1'}}> NEAR</span>
 							</p>
 						</div>
