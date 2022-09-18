@@ -24,6 +24,25 @@ const MyNftCard = (props) => {
 
 	const [showListModal, setShowListModal] = useState(false);
 
+	async function removeSale(nft_contract_id, token_id) {
+		try {
+			await window.contractMarket.remove_sale(
+				{
+					nft_contract_id: nft_contract_id,
+					token_id: token_id,
+				},
+				30000000000000,
+				1
+			);
+		} catch (e) {
+			console.log("Error: ", e);
+		}
+	}
+
+	function handelCancel() {
+		removeSale(nft_contract_id, id);
+	}
+
 	return (
 		<div className="single__nft__card">
 			<div className="nft__content ">
@@ -109,6 +128,7 @@ const MyNftCard = (props) => {
 					<button
 						className="bid__btn d-flex align-items-center gap-1"
 						style={{ background: "#e250e5", border: "none" }}
+						onClick={handelCancel}
 					>
 						<i className="ri-close-circle-line"></i> Delist
 					</button>
