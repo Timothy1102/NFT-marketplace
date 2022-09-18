@@ -7,7 +7,7 @@ import heroImg from "../../assets/images/bg.png";
 
 const HeroSection = () => {
   return (
-    <section className="hero__section">
+    <section className="hero__section" style={{marginBottom: 50}}>
       <Container>
         <Row>
           <Col lg="6" md="6">
@@ -19,12 +19,6 @@ const HeroSection = () => {
               <p className="des">
                 A place to interact with Blockchain technology by minting & selling NFTs.
               </p>
-
-              <div className="hero__btns d-flex align-items-center gap-4">
-                <button className=" explore__btn d-flex align-items-center gap-2">
-                  <Link to="/market">Explore</Link>
-                </button>
-              </div>
             </div>
           </Col>
 

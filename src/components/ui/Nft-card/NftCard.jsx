@@ -4,32 +4,62 @@ import { notification } from "antd";
 import { login } from "../../../utils";
 import "./nft-card.css";
 import { utils } from "near-api-js";
-import { Container, Row, Col } from "reactstrap";
-import {
-	CheckCircleOutlined,
-	EyeTwoTone,
-	CheckCircleTwoTone,
-	HeartTwoTone,
-} from "@ant-design/icons";
-import { Tag } from "antd";
+import { Row, Col } from "reactstrap";
+import { EyeTwoTone, HeartTwoTone } from "@ant-design/icons";
 
-const NftCard = ({ 
-	creator,
-	id,
-	selling_price,
-	title,
-	imgUrl,
-	desc,
-	is_selling,
-	tags
-}) => {
+const NftCard = (props) => {
+
+	let item = props.item;
+
+	const creator = props.item.owner_id;
+	const id = props.item.token_id;
+	const selling_price = props.item.sale_conditions;
+	const title = props.item.itemData.metadata.title;
+	const imgUrl = props.item.itemData.metadata.media;
+	const desc = props.item.itemData.metadata.description;
+	const is_selling = props.item.is_selling;
+  	const tags = props.item.itemData.metadata.extra;
+
+	function handleBuy() {
+		submitBuy(item);
+	}
+
+	async function submitBuy(item) {
+		console.log(item);
+		try {
+			if (!window.walletConnection.isSignedIn()) return login();
+			let nearBalance = await window.account.getAccountBalance();
+			if (nearBalance.available < parseInt(item.sale_conditions.amount)) {
+				notification["warning"]({
+					message: "You dont have enough NEAR",
+					description:
+						"your account does not have enough NEAR to purchase this item.",
+				});
+
+				return;
+			}
+
+			await window.contractMarket.offer(
+				{
+					nft_contract_id: item.nft_contract_id,
+					token_id: item.token_id,
+				},
+				300000000000000,
+				item.sale_conditions
+			);
+
+			console.log("this is it");
+		} catch (e) {
+			console.log("Error: ", e);
+		}
+	}
 
 	return (
 		<div className="single__nft__card" id="nftcard">
-			<div className="nft__content ">
+			<div className="nft__content " >
 				<Row>
 					<Col lg="3" style={{ marginRight: 7 }}>
-						<a href={`/market/${id}`}>
+            			<a href={`/market/${id}`}>
 							<img
 								src={imgUrl}
 								alt="nft thumbnail"
@@ -41,13 +71,10 @@ const NftCard = ({
 									marginRight: 20,
 								}}
 							/>
-						</a>
+            			</a>
 					</Col>
 					<Col>
-						<h5
-							className="nft__title d-inline-flex"
-							style={{ marginBottom: 0 }}
-						>
+						<h5 className="nft__title d-inline-flex" style={{ marginBottom: 0}}>
 							<Link
 								style={{ color: "white", fontSize: 20 }}
 								to={`/market/${id}`}
@@ -90,10 +117,9 @@ const NftCard = ({
 				Owner: {creator}
 			</p>
 
-			<div className=" d-flex align-items-center gap-2 single__nft-seen">
-				<EyeTwoTone twoToneColor="#ffa500" /> <span>53</span>
+      		<div className=" d-flex align-items-center gap-2 single__nft-seen">
+				<EyeTwoTone twoToneColor="#ffa500"/> <span>53</span>
 				<HeartTwoTone twoToneColor="#eb2f96" /> <span>34</span>
-				<CheckCircleTwoTone twoToneColor="#52c41a" /> <span>15</span>
 			</div>
 
 			<div
@@ -103,23 +129,25 @@ const NftCard = ({
 				<div className="creator__info w-100 d-flex align-items-center justify-content-between">
 					<div>
 						<h6>Selling price</h6>
-						<p style={{ color: "orange" }}>
-							{selling_price}
-							<span style={{ color: "#b1b3b1" }}> NEAR</span>
+						<p style={{color: 'orange'}}>
+							{utils.format.formatNearAmount(selling_price)}
+              				<span style={{color:'#b1b3b1'}}> NEAR</span>
 						</p>
 					</div>
 				</div>
 			</div>
 
-			{!is_selling && (
+			{!is_selling &&
+        		(
 				<div className=" d-inline-flex align-items-center justify-content-between">
 					<button
 						className="bid__btn d-flex align-items-center gap-1"
+						onClick={handleBuy}
 					>
 						Buy
 					</button>
 				</div>
-			)}
+				)}
 		</div>
 	);
 };
