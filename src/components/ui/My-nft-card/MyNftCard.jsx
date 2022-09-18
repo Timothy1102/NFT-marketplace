@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { utils } from "near-api-js";
 import "./my-nft-card.css";
+import ModalListNft from "../Modal-list-nft/ModalListNFT";
 import getConfig from "../../../config";
 import { Row, Col } from "reactstrap";
 import { EyeTwoTone, HeartTwoTone} from "@ant-design/icons";
@@ -20,6 +21,8 @@ const MyNftCard = (props) => {
 		is_selling,
 		selling_price,
 	} = props.item;
+
+	const [showListModal, setShowListModal] = useState(false);
 
 	return (
 		<div className="single__nft__card">
@@ -114,9 +117,16 @@ const MyNftCard = (props) => {
 				<div className=" mt-3 d-inline-flex align-items-center ">
 					<button
 						className="bid__btn d-flex align-items-center gap-1"
+						onClick={() => setShowListModal(true)}
 					>
 						List
 					</button>
+					{showListModal && (
+						<ModalListNft
+							setShowListModal={setShowListModal}
+							token_id={id}
+						/>
+					)}
 				</div>
 			)}
 		</div>

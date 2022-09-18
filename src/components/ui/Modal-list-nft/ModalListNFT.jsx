@@ -9,14 +9,13 @@ const nearConfig = getConfig('development')
 const ModalListNft = ({ setShowListModal, token_id }) => {
 
     const [selling_price, setSellingPrice] = useState("");
-    const [using_price, setUsingPrice] = useState("");
 
-    async function submitList(token_id, selling_price, using_price) {
+    async function submitList(token_id, selling_price) {
         try {
-            if (selling_price && using_price && token_id) {
+            if (selling_price && token_id) {
                 let sale_conditions = { 
                     sale_condition: utils.format.parseNearAmount(selling_price.toString()),
-                    use_condition: utils.format.parseNearAmount(using_price.toString()),
+                    use_condition: utils.format.parseNearAmount('0'),
                 }
 
                 // Check storage balance
@@ -51,7 +50,7 @@ const ModalListNft = ({ setShowListModal, token_id }) => {
     }
 
     function handleListNft() {
-        submitList(token_id, selling_price, using_price)
+        submitList(token_id, selling_price)
         setShowListModal(false)
     }
 
@@ -68,14 +67,6 @@ const ModalListNft = ({ setShowListModal, token_id }) => {
 
                 <div className="input__item mb-4">
                     <input onChange={(e) => setSellingPrice(e.target.value)} type="number" placeholder="selling price (NEAR)" />
-                </div>
-
-                <p className="text-center text-light">
-                    Enter using price
-                </p>
-
-                <div className="input__item mb-4">
-                    <input onChange={(e) => setUsingPrice(e.target.value)} type="number" placeholder="using price (NEAR)" />
                 </div>
 
                 <button className="place__bid-btn" onClick={handleListNft}>List</button>
