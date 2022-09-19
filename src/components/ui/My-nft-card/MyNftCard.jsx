@@ -47,7 +47,7 @@ const MyNftCard = (props) => {
 		<div className="single__nft__card">
 			<div className="nft__content ">
 				<Row>
-					<Col lg="3" style={{ marginRight: 7 }}>
+					{/* <Col lg="3" style={{ marginRight: 7 }}>
 						<img
 							src={imgUrl}
 							alt="nft thumbnail"
@@ -59,7 +59,7 @@ const MyNftCard = (props) => {
 								marginRight: 20,
 							}}
 						/>
-					</Col>
+					</Col> */}
 					<Col>
 						<h5 className="nft__title" style={{ marginBottom: 7 }}>
 							<Link
@@ -73,10 +73,20 @@ const MyNftCard = (props) => {
 				</Row>
 			</div>
 
+			<img
+				src={imgUrl}
+				alt="nft thumbnail"
+				className="d-inline-flex tw-rounded-full image-shadow tw-w-14 tw-h-14 "
+				style={{
+					width: 250,
+					height: 250,
+				}}
+			/>
+
 			<div
 				className="contract_des"
 				style={{
-					height: 160,
+					height: 50,
 					border: "0.3px solid #ffa500",
 					padding: "5px 10px",
 					marginTop: 10,
@@ -85,7 +95,7 @@ const MyNftCard = (props) => {
 			>
 				<p
 					style={{
-						height: 150,
+						height: 50,
 						color: "#c7bfbf",
 						fontSize: 13,
 						textOverflow: "ellipsis",
