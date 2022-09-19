@@ -47,19 +47,6 @@ const MyNftCard = (props) => {
 		<div className="single__nft__card">
 			<div className="nft__content ">
 				<Row>
-					{/* <Col lg="3" style={{ marginRight: 7 }}>
-						<img
-							src={imgUrl}
-							alt="nft thumbnail"
-							className="d-inline-flex tw-rounded-full image-shadow tw-w-14 tw-h-14 "
-							style={{
-								width: 60,
-								height: 60,
-								borderRadius: "50px",
-								marginRight: 20,
-							}}
-						/>
-					</Col> */}
 					<Col>
 						<h5 className="nft__title" style={{ marginBottom: 7 }}>
 							<Link
